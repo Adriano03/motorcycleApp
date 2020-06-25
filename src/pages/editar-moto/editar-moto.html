@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Editar Moto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form" (submit)="submitForm()">
+    <ion-item>
+      <ion-label floating>
+        Marca:
+      </ion-label>
+      <ion-input type="text" formControlName="marca"></ion-input>
+    </ion-item>
+     <small *ngIf="marca.hasError('required')&& marca.touched" ion-text color="danger">
+       *Campo Marca é Obrigatório!
+     </small>
+  
+    <ion-item>
+        <ion-label floating>
+          Modelo:
+        </ion-label>
+        <ion-input type="text" formControlName="modelo"></ion-input>
+      </ion-item>
+      <small *ngIf="modelo.hasError('required')&& modelo.touched" ion-text color="danger">
+        *Campo Modelo é Obrigatório!
+      </small>
+
+      <ion-item>
+        <ion-label floating>
+          Cilindrada:
+        </ion-label>
+        <ion-input  type="text" formControlName="cilindrada"></ion-input>
+      </ion-item>
+       <small *ngIf="cilindrada.hasError('required')&& cilindrada.touched" ion-text color="danger">
+         *Campo Cilindrada é Obrigatório!
+       </small>
+
+       <ion-item>
+        <ion-label floating>
+          Potencia:
+        </ion-label>
+        <ion-input type="text" formControlName="potencia"></ion-input>
+      </ion-item>
+       <small *ngIf="potencia.hasError('required')&& potencia.touched" ion-text color="danger">
+         *Campo Potencia é Obrigatório!
+       </small>
+
+       <ion-item>
+        <ion-label floating>
+          Preço:
+        </ion-label>
+        <ion-input type="text" formControlName="preco"></ion-input>
+      </ion-item>
+       <small *ngIf="preco.hasError('required')&& preco.touched" ion-text color="danger">
+         *Campo Preço é Obrigatório!
+       </small>
+
+       <ion-item>
+        <ion-label>Selecionar Ano</ion-label>
+        <ion-select formControlName="ano">
+          <ion-option  *ngFor = "let ano of vetorAno">{{ano}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <button ion-button full type="submit">Cadastrar</button>
+    </form>
+    <button ion-button color="danger" full (click)="cancelar()">Cancelar</button>
+</ion-content>

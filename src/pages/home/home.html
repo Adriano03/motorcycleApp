@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     Motorcycle App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding  class="bg-imagem" >
+  <ion-fab bottom right>
+    <button ion-fab color="danger"(click)="irParaCadastro()" >
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-item class="avatar">
+
+      <ion-avatar slot="start">
+          <img *ngIf="usuario.photoURL != null" class="foto"
+        [src]="usuario.photoURL"/>
+        </ion-avatar>
+    <h3>{{usuario.displayName}}</h3>
+    
+  </ion-item>
+
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let moto of moto | async">
+        <ion-item>
+    
+        <ion-label>{{moto.marca}}</ion-label>
+     
+       </ion-item>
+      
+    <ion-item-options side="right">
+
+        <button ion-button color = "secondary"
+        (click)="editarMoto(moto)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+
+      <button ion-button color = "danger"
+      (click)="confirmarExcluir(moto.key)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+
+    </ion-item-options>
+    </ion-item-sliding>
+
+</ion-list>
+
+
+  
+
+</ion-content>

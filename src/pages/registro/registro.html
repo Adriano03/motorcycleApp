@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form [formGroup] ="formRegistro"
+    (submit)="submitFormRegistro()">
+   
+    <ion-list>
+   <ion-item>
+     <ion-label floating>Email:</ion-label>
+     <ion-input type="text" 
+     formControlName="email"></ion-input>
+   </ion-item>
+   <small *ngIf ="email.hasError('email')&& email.touched" ion-text color="danger">
+     *Formato de email inválido
+   </small>
+   <ion-item>
+       <ion-label floating>Senha:</ion-label>
+       <ion-input type="password" 
+       formControlName="senha"></ion-input>
+     </ion-item>
+     <small *ngIf ="senha.hasError('required')&& senha.touched" ion-text color="danger">
+         *Campo obrigatório
+       </small>
+       <ion-item>
+          <ion-label floating>Confirmar Senha:</ion-label>
+          <ion-input type="password" 
+          formControlName="confSenha"></ion-input>
+        </ion-item>
+        <small *ngIf ="confSenha.hasError('required')&& confSenha.touched" ion-text color="danger">
+            *Campo obrigatório
+          </small>
+   
+    </ion-list>
+    <button full ion-button type="submit">Registrar</button>
+   
+   </form>
+   
+   
+
+</ion-content>
